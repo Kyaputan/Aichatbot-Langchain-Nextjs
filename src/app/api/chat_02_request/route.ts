@@ -3,8 +3,8 @@ import { ChatOpenAI } from "@langchain/openai"
 
 const MaxToken: number = 2048
 // const Timeout: number = 30
-const MaxRetries: number = 10
-const Temperature: number = 0
+// const MaxRetries: number = 10
+// const Temperature: number = 0
 
 
 export async function POST(req: NextRequest) {

@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server"
 import { ChatOpenAI } from "@langchain/openai"
-import { ChatGoogleGenerativeAI } from "@langchain/google-genai"
+// import { ChatGoogleGenerativeAI } from "@langchain/google-genai"
 
 const MaxToken: number = 2048
 // const Timeout: number = 30
-const MaxRetries: number = 10
-const Temperature: number = 0
+// const MaxRetries: number = 10
+// const Temperature: number = 0
 
 // const llm = new ChatOpenAI({
 //     model: "gpt-4o-mini", // ชื่อโมเดล
