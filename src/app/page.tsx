@@ -18,12 +18,6 @@ export default function Chat() {
 
   return (
     <div className="flex flex-col h-screen bg-gray-100">
-      
-      {/* Header */}
-      <div className="bg-white shadow-sm p-4 border-b">
-        <h1 className="text-xl font-semibold text-gray-800 text-center">AI Chatbot with LangChain.JS</h1>
-      </div>
-
       {/* Chat Messages Area */}
       <div className="flex-1 overflow-y-auto p-4">
         <div className="space-y-3 max-w-3xl mx-auto w-full h-full">
