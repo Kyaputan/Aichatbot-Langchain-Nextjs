@@ -64,3 +64,4 @@ export async function updateSession(request: NextRequest) {
 
   return supabaseResponse
 }
+// middleware.ts ตัวนี้คุมการเข้าถึง จะได้เข้า auth/login หรือ auth/signup ถ้าไม่มี user
