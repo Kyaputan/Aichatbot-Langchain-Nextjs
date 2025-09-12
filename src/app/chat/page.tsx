@@ -10,7 +10,7 @@ import { createClient } from '@/lib/client'
 import { User } from '@supabase/supabase-js'
 
 export default function Chat() {
-    const [user, setUser] = useState<User | null>(null)
+    const [User, setUser] = useState<User | null>(null)
     const [displayName, setDisplayName] = useState<string>('')
     const { messages, sendMessage, status } = useChat({
         transport: new DefaultChatTransport({
@@ -48,7 +48,7 @@ useEffect(() => {
     })
 
     return () => subscription.unsubscribe()
-}, [])
+}, [User])
 
     return (
 
