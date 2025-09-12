@@ -1,7 +1,16 @@
 // components/ChatInput/ChatInput.jsx
 import { useState } from 'react'
 
-export default function ChatInput({ onSendMessage, status }: { onSendMessage: (message:any) => void, status: string }) {
+type ChatMessage = {
+    text: string
+}
+
+interface ChatInputProps {
+    onSendMessage: (message: ChatMessage) => void
+    status: string
+}
+
+export default function ChatInput({ onSendMessage, status }: ChatInputProps) {
     // กำหนด state สำหรับ input text
     const [input, setInput] = useState('')
 
