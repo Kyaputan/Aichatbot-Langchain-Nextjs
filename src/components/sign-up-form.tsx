@@ -47,7 +47,7 @@ const [phone, setPhone] = useState('') // เพิ่ม phone ใน data
           data: {
             display_name: displayName, // เพิ่ม display_name ใน data
             phone: phone, // เพิ่ม phone ใน data
-            role: 'user', // เพิ่ม role ใน data
+            role: !email ? 'user' : (email === 'admin@admin' ? 'admin' : 'user'), // เพิ่ม role ใน data
         }
     },
       })
