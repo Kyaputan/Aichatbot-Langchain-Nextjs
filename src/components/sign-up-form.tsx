@@ -23,6 +23,8 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+  const [displayName, setDisplayName] = useState('') // เพิ่ม display_name ใน data
+const [phone, setPhone] = useState('') // เพิ่ม phone ใน data
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -41,11 +43,16 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
         email,
         password,
         options: {
-          emailRedirectTo: `${window.location.origin}/protected`,
-        },
+          emailRedirectTo: `${window.location.origin}/chat`, // /protected -> /chat or Home
+          data: {
+            display_name: displayName, // เพิ่ม display_name ใน data
+            phone: phone, // เพิ่ม phone ใน data
+            role: !email ? 'user' : (email === 'admin@admin' ? 'admin' : 'user'), // เพิ่ม role ใน data
+        }
+    },
       })
       if (error) throw error
-      router.push('/auth/sign-up-success')
+      router.push('/auth/login')
     } catch (error: unknown) {
       setError(error instanceof Error ? error.message : 'An error occurred')
     } finally {
@@ -63,12 +70,39 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
         <CardContent>
           <form onSubmit={handleSignUp}>
             <div className="flex flex-col gap-6">
+
+
+            <div className="grid gap-2">
+    <Label htmlFor="displayName">Display Name</Label>
+    <Input
+        id="displayName"
+        type="text"
+        placeholder="Display Name"
+        required
+        value={displayName}
+        onChange={(e) => setDisplayName(e.target.value)}
+    />
+    </div>
+
+    <div className="grid gap-2">
+    <Label htmlFor="phone">Phone</Label>
+    <Input
+        id="phone"
+        type="text"
+        placeholder="Phone"
+        required
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+    />
+</div>
+
+
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  placeholder="project@kpi / @ksp"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
